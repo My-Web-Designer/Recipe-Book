@@ -1,0 +1,45 @@
+<!-- Name -->
+<div class="row">
+  <div class="col-sm-12">
+    <h2>{{recipe.name}}</h2>
+  </div>
+</div>
+
+<!-- Image -->
+<div class="row mb-2">
+  <div class="col-sm-12 text-center">
+    <img [src]="recipe.imagePath" alt="Image" class="img-fluid" style="height: 400px">
+  </div>
+</div>
+
+<!-- Manage Button -->
+<div class="row">
+  <div class="col-sm-12">
+    <div class="btn-group">
+      <button type="button" class="btn btn-outline-primary btn-sm dropdown-toggle" appDropdown data-toggle="dropdown"
+        aria-expanded="false">Manage</button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item pointer" (click)="onMange('shopping-list')">To Shopping List</a>
+        <a class="dropdown-item pointer" (click)="onMange('edit')">Edit Recipe</a>
+        <a class="dropdown-item pointer" (click)="onMange('delete')">Delete Recipe</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Description -->
+<div class="row mt-4">
+  <div class="col-sm-12">
+    <p>{{recipe.description}}</p>
+  </div>
+</div>
+
+<!-- Ingredients -->
+<div class="row">
+  <div class="col-sm-12">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+        {{ingredient.name}} {{ingredient.amount}}</li>
+    </ul>
+  </div>
+</div>
